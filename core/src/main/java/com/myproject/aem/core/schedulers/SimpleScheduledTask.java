@@ -52,7 +52,7 @@ public class SimpleScheduledTask implements Runnable {
     @Property(label = "A parameter", description = "Can be configured in /system/console/configMgr")
     public static final String MY_PARAMETER = "myParameter";
     private String myParameter;
-    
+// Activate method started    
     @Activate
     protected void activate(final Map<String, Object> config) {
         configure(config);
