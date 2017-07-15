@@ -77,7 +77,6 @@
             <!--
                 we want to keep some of the META-INF files and not configure
                 everything in the plugin (mainly the filters).
-
                 copy the resource explicitly instead of attaching it to the default resources
             -->
             <plugin>
@@ -202,10 +201,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
-        </dependency>
-
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<version>6.2.0</version><!--$NO-MVN-MAN-VER$-->
+			<classifier>apis</classifier>
+			<scope>provided</scope>
+		</dependency>
+		
         <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
