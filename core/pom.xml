@@ -48,6 +48,23 @@
                         <Sling-Model-Packages>
                             com.myproject.aem.core
                         </Sling-Model-Packages>
+                        
+                        
+                        <Import-Package>
+javax.inject;version=0.0.0,com.day.cq.replication;version="[6.0.0,7)",
+org.apache.sling.event.jobs;version="[1.5,2]",
+com.day.cq.workflow;version="[1.0,2)",
+com.day.cq.workflow.exec;version="[1.0,2)",
+com.day.cq.workflow.metadata;version="[1.0,2)",
+org.apache.sling.models.annotations;version="[1.1,2)",
+com.day.cq.commons.jcr;version="[5.7.0,7.0.0)",
+*
+</Import-Package>
+                        
+                        
+                        
+                        
+                        
                     </instructions>
                 </configuration>
             </plugin>
@@ -69,7 +86,7 @@
                             <!-- Note that this requires /apps/apps/install to exist!!          -->
                             <!--    This is typically the case when ui.apps is deployed first                -->
                             <!--    Otherwise, create /apps/apps/install manually (CRXDE|Lite)  -->
-                            <slingUrlSuffix>/apps/apps/install/</slingUrlSuffix>
+                            <slingUrlSuffix>/apps/myproject/install/</slingUrlSuffix>
                             <failOnError>true</failOnError>
                         </configuration>
                     </plugin>
@@ -77,60 +94,92 @@
             </build>
         </profile>
     </profiles>
-    <dependencies>
-        <!-- OSGi Dependencies -->
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr</artifactId>
+   
+   
+   <!-- OSGi Dependencies -->
+   <dependencies>
+		<!-- OSGi Dependencies -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>biz.aQute</groupId>
+			<artifactId>bndlib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<!-- Other Dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<!-- <dependency> <groupId>com.adobe.aem</groupId> <artifactId>aem-api</artifactId> 
+			</dependency> -->
+		<dependency>
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>apis</classifier>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.models.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit-addons</groupId>
+			<artifactId>junit-addons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<classifier>obfuscated-apis</classifier>
+		</dependency>
+
+
+
+		<dependency>
+        <groupId>org.apache.geronimo.specs</groupId>
+        <artifactId>geronimo-atinject_1.0_spec</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>biz.aQute</groupId>
-            <artifactId>bndlib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.compendium</artifactId>
-        </dependency>
-        <!-- Other Dependencies -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.jcr</groupId>
-            <artifactId>jcr</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.models.api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit-addons</groupId>
-            <artifactId>junit-addons</artifactId>
-        </dependency>
-    </dependencies>
+		
+		
+		
+	</dependencies>
 </project>
+   
