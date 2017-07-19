@@ -45,19 +45,20 @@ public class SampleUse extends WCMUse
 	public void activate() throws RepositoryException, PersistenceException  {
 		ValueMap properties=getProperties();
 		ValueMap pageproperties=getPageProperties();
-		Page page=getCurrentPage();
+		//Page page=getCurrentPage();
 		SlingHttpServletRequest request=getRequest();
 		SlingHttpServletResponse responce=getResponse();
 		Resource resource=getResource();
 		ResourceResolver resourceResolver=getResourceResolver();
 		Design currentDesign=getCurrentDesign();
 		Style currentStyle=getCurrentStyle();
-		pageValue=page.getPath();		
+		pageValue=getCurrentPage().getPath();		
 			
 		AdaptTo(resource,Node.class);
-		AEMApi(page);
+		//(page);
 		SlingApi(resource, resourceResolver);
 		JCRApi();
+		
 	}
 		private void JCRApi() {
 		// TODO Auto-generated method stub
@@ -70,6 +71,7 @@ public class SampleUse extends WCMUse
 			log.debug("Resource Path: {}", resource.getPath());
 			log.debug("Resource Parent Path: {}", resource.getParent());
 			log.debug("Resource has children: {}", resource.hasChildren());
+			log.debug("Page value is: {}",pageValue);
 			log.debug("****************************************");
 			 resourceNode.addNode("nodebySlingAPI", "nt:unstructured");
 			Resolver.commit();
