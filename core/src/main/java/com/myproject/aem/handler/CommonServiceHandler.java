@@ -27,7 +27,7 @@ import com.day.cq.wcm.api.PageModification;
 public class CommonServiceHandler implements EventHandler {
 
 	private static final Logger log = LoggerFactory.getLogger(CommonServiceHandler.class);
-
+//over ride method starts
 	@Override
 	public void handleEvent(Event event) {
 		// TODO Auto-generated method stub
